@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
+- This is a simple front-end project to create tasks based on your job and apply to another users.
+- This project consume REST API from project https://github.com/AleixoLeonardo/lbd_5
+
+
+# Technologies
+- NGRX
+- Animation Browse
+- Toastr
+- Store dev tools
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
