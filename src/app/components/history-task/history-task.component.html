@@ -1,0 +1,54 @@
+<div class="wrapper component">
+    <h3>Tasks</h3>
+    <hr>
+
+    <button class="btn-blue m-10" (click)="new()"> New</button>
+    <button class="btn-red m-10" (click)="menu()"> back</button>
+    <section *ngIf="(tasks$ | async) && !historyTask">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            <tr *ngFor="let task of tasks$ | async" (click)="select(task)">
+                <td>{{task.id}}</td>
+                <td>{{task.name}}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section *ngIf="historyTask">
+        <div class="wrapper">
+            <input type="date" [(ngModel)]="start" placeholder="Start">
+            <input type="date" [(ngModel)]="end" placeholder="End">
+            <button (click)="loadHistoryTaskByFilter()" class="btn-blue">Buscar</button>
+        </div>
+        <section *ngIf="(historyTasks$ | async)">
+            <h4>History Tasks</h4>
+            <table>
+                <tr>
+                    <th style="width: 5%">Id</th>
+                    <th style="width: 10%">User</th>
+                    <th style="width: 15%">Time</th>
+                    <th style="width: 70%">Message</th>
+                </tr>
+                <tr *ngFor="let historyTask of historyTasks$ | async">
+                    <td>{{historyTask.id}}</td>
+                    <td>{{historyTask.userId.name}}</td>
+                    <td>{{historyTask.historyDate | date: 'yyyy-MM-dd'}}</td>
+                    <td>{{historyTask.message}}</td>
+                </tr>
+            </table>
+        </section>
+
+        <div class="form-wrap">
+            <input placeholder="Message" [(ngModel)]="historyTask.message">
+        </div>
+
+        <div class="form-wrap">
+            <button (click)="save()" class="btn-green">Save</button>
+            <button (click)="back()" class="btn-red">Cancel</button>
+        </div>
+
+    </section>
+</div>

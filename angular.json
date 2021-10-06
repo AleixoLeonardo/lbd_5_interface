@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lbd5"
+    }
+  },
+  "defaultProject": "lbd5",
+  "cli": {
+    "analytics": false
+  }
 }

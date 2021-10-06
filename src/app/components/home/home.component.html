@@ -1,0 +1,22 @@
+<div class="wrapper component">
+    <div class="w-100 align-right">
+        <span (click)="logout()">logout</span>
+    </div>
+    <div class="menu-wrapper" *ngIf="userLogged">
+        <div *ngIf="userLogged.autorizacao === 'ROLE_ADMIN'">
+            <section>
+                <button class="btn-blue" (click)="createUser()"> Create user</button>
+            </section>
+            <section>
+                <button class="btn-blue" (click)="createJob()"> Create job</button>
+            </section>
+
+        </div>
+        <section>
+            <button class="btn-blue" (click)="createTask()"> Create task</button>
+        </section>
+        <section>
+            <button class="btn-blue" (click)="createHistory()"> View task</button>
+        </section>
+    </div>
+</div>

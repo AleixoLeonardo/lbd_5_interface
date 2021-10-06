@@ -1,1 +1,118 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import '~ngx-toastr/toastr';
+// colors
+$color-blue: #007bff;
+$color-gray: #e9ecef;
+$color-red: #dc3545;
+$color-green: #28a745;
+
+
+$bg-color-base: #F5F5F5;
+$bg-color-component: #FFFFFF;
+
+
+// texts
+$font-weight-bolder: bolder;
+
+body {
+    background-color: $bg-color-base;
+}
+
+.wrapper {
+    max-width: 1044px;
+    margin: 10px auto;
+}
+
+
+input {
+    margin: 10px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid $color-gray;
+    border-radius: 5px;
+    width: 50%;
+}
+
+select {
+    margin: 10px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid $color-gray;
+    border-radius: 5px;
+    width: 50%;
+}
+
+button {
+    border-radius: 5px;
+    height: 25px;
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: $font-weight-bolder;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-blue {
+    background-color: $color-blue;
+    color: white;
+}
+
+
+.btn-green {
+    background-color: $color-green;
+    color: white;
+}
+
+.btn-red {
+    background-color: $color-red;
+    color: white;
+}
+
+
+//table
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    cursor: pointer;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+  //end table
+
+.m-10 {
+    margin: 10px;
+}
+
+.form-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+}
+
+
+
+.w-100 {
+    width: 100%;;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.component {
+    background-color: $bg-color-component;   
+}

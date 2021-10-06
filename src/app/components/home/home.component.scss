@@ -1,0 +1,27 @@
+@import "../../../styles.scss";
+
+span {
+    color: $color-red;
+    font-weight: bolder;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.wrapper {
+    min-height: 500px;
+}
+
+.menu-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
+    section {
+        margin: 10px;
+    }
+
+    button {
+        width: 200px;
+        height: 40px;
+    }
+}

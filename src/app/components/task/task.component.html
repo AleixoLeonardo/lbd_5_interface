@@ -1,0 +1,39 @@
+<div class="wrapper component">
+    <h3>Tasks</h3>
+    <hr>
+    <button class="btn-blue m-10" (click)="new()"> New</button>
+    <button class="btn-red m-10" (click)="menu()"> back</button>
+    <section *ngIf="(tasks$ | async) && !task">
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+            </tr>
+            <tr *ngFor="let task of tasks$ | async" (click)="select(task)">
+                <td>{{task.id}}</td>
+                <td>{{task.name}}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section *ngIf="task">
+        <div class="form-wrap">
+            <input placeholder="Name" [(ngModel)]="task.name">
+            <div class="field scroll-y-checkbox">
+                <label for="job-name">Jobs:</label>
+                <div *ngFor="let job of jobs$ | async" class="d-flex-input">
+                    <input type="checkbox" [checked]="isInList(job.id)" (click)="addRemoveJob(job)">
+                    <label style="margin-top: 10px;">{{job.name}}</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-wrap">
+            <button (click)="save()" class="btn-green">Save</button>
+            <button (click)="back()" class="btn-red">Cancel</button>
+        </div>
+
+    </section>
+
+</div>

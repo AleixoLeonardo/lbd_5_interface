@@ -1,0 +1,33 @@
+<div class="wrapper component">
+    <h3>Jobs</h3>
+    <hr>
+
+    <button class="btn-blue m-10" (click)="new()"> New</button>
+    <button class="btn-red m-10" (click)="menu()"> back</button>
+
+    <section *ngIf="(jobs$ | async) && !job">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+            </tr>
+            <tr *ngFor="let job of jobs$ | async" (click)="select(job)">
+                <td>{{job.id}}</td>
+                <td>{{job.name}}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section *ngIf="job">
+        <div class="form-wrap">
+            <input placeholder="Name" [(ngModel)]="job.name">
+        </div>
+
+        <div class="form-wrap">
+            <button (click)="save()" class="btn-green">Save</button>
+            <button (click)="back()" class="btn-red">Cancel</button>
+        </div>
+
+    </section>
+
+</div>

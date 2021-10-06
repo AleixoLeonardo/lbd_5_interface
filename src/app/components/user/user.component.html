@@ -1,0 +1,49 @@
+<div class="wrapper">
+    <h3>Users</h3>
+    <hr>
+
+    <button class="btn-blue m-10" (click)="new()"> New</button>
+    <button class="btn-red m-10" (click)="menu()"> back</button>
+    <section *ngIf="(users$ | async) && !user">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Role</th>
+                <th>Job</th>
+            </tr>
+            <tr *ngFor="let user of users$ | async" (click)="select(user)">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.role}}</td>
+                <td>{{user.jobId.name}}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section *ngIf="user">
+        <div class="form-wrap">
+            <input placeholder="Name" [(ngModel)]="user.name">
+            <input placeholder="Cpf" [(ngModel)]="user.cpf">
+
+        </div>
+        <div class="form-wrap">
+            <input placeholder="Birth date" [(ngModel)]="user.birthDate" type="date">
+            <select [(ngModel)]="user.jobId">
+                <option *ngFor="let job of jobs$ | async" [ngValue]="job">
+                    {{ job.name }}
+                </option>
+            </select>
+        </div>
+        <div class="form-wrap" *ngIf="user && !user.id">
+            <input placeholder="Password" [(ngModel)]="user.password">
+        </div>
+
+        <div class="form-wrap">
+            <button (click)="save()" class="btn-green">Save</button>
+            <button (click)="back()" class="btn-red">Cancel</button>
+        </div>
+
+    </section>
+
+</div>

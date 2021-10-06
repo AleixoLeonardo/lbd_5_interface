@@ -1,0 +1,17 @@
+@import "../../../styles.scss";
+
+
+.card-login {
+    margin-top: 30%;
+    width: 400px;
+    height: 500px;
+    border: 1px solid $color-gray;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+input {
+    width: 90%;
+}
